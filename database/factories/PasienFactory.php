@@ -19,8 +19,8 @@ class PasienFactory extends Factory
         return [
             'nama_pasien' => fake()->name(),
             'alamat' => fake()->address(),
-            'no_telpon' => fake()->phoneNumber(),
-            'rumah_sakit_id' => fake()->numberBetween(1, 10)
+            'no_telpon' => fake()->numerify(str_repeat('#', rand(10, 12))),
+            'rumah_sakit_id' => fake()->numberBetween(1, 10),
         ];
     }
 }
