@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'SIMRS')</title>
+    <title>@yield('title', 'SIMRS Auth')</title>
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @else
@@ -11,9 +11,12 @@
         </style>
     @endif
 </head>
-<body class="min-vh-100 d-flex align-items-center justify-content-center bg-light">
+<body class="">
 
-@yield('content')
+<div class="">
+    @include('components.navbar')
+    @yield('content')
+</div>
 
 @stack('scripts')
 </body>
