@@ -20,7 +20,6 @@ class RumahSakitFactory extends Factory
             'nama_rumah_sakit' => fake()->company(),
             'alamat' => fake()->address(),
             'email' => fake()->unique()->safeEmail(),
-            'telepon' => fake()->phoneNumber(),
-        ];
+            'telepon' => fake()->numerify(str_repeat('#', rand(10, 12))),];
     }
 }
