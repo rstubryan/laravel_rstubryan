@@ -2,11 +2,20 @@ import $ from "jquery";
 import "bootstrap";
 import * as bootstrap from "bootstrap";
 
-function loadPasien() {
-    $.get("/pasien", function (data) {
+function loadPasien(rumahSakitId = "") {
+    let url = "/pasien";
+    if (rumahSakitId) {
+        url += "?rumah_sakit_id=" + rumahSakitId;
+    }
+    $.get(url, function (data) {
         $("#pasienTableBody").html(data);
     });
 }
+
+$("#filterRumahSakit").on("change", function () {
+    const id = $(this).val();
+    loadPasien(id);
+});
 
 $("#createPasienForm").on("submit", function (e) {
     e.preventDefault();

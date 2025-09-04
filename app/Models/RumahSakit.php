@@ -16,4 +16,9 @@ class RumahSakit extends Model
     {
         return $this->hasMany(Pasien::class, 'rumah_sakit_id');
     }
+
+    public function pasiens()
+    {
+        return $this->hasMany(Pasien::class, 'rumah_sakit_id');
+    }
 }

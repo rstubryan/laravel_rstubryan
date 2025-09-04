@@ -7,6 +7,18 @@
             <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Pasien
             </button>
         </div>
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <select id="filterRumahSakit" class="form-control">
+                    <option value="">Semua Rumah Sakit</option>
+                    @foreach($rumahSakits as $rs)
+                        <option value="{{ $rs->id }}">
+                            {{ $rs->nama_rumah_sakit }} ({{ $rs->pasiens_count }})
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
         <table class="table table-bordered">
             <thead>
             <tr>

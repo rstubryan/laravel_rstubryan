@@ -13,8 +13,12 @@ class PasienController extends Controller
      */
     public function index(Request $request)
     {
-        $pasiens = Pasien::with('rumahSakit')->get();
-        $rumahSakits = RumahSakit::all();
+        $query = Pasien::with('rumahSakit');
+        if ($request->has('rumah_sakit_id') && $request->rumah_sakit_id) {
+            $query->where('rumah_sakit_id', $request->rumah_sakit_id);
+        }
+        $pasiens = $query->get();
+        $rumahSakits = RumahSakit::withCount('pasiens')->get();
         if ($request->ajax()) {
             return view('pasien.table', compact('pasiens'))->render();
         }
