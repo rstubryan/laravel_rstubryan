@@ -6,9 +6,7 @@ use App\Http\Controllers\RumahSakitController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/login');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'index'])->name('login');
