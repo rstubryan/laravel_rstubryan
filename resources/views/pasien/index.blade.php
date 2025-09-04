@@ -48,14 +48,23 @@
                         <div class="mb-3">
                             <label class="form-label">Nama</label>
                             <input type="text" class="form-control" name="nama_pasien" required>
+                            @error('nama_pasien')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Alamat</label>
                             <input type="text" class="form-control" name="alamat" required>
+                            @error('alamat')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label class="form-label">No Telpon</label>
                             <input type="number" class="form-control" name="no_telpon" required>
+                            @error('no_telpon')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Rumah Sakit</label>
@@ -91,14 +100,23 @@
                         <div class="mb-3">
                             <label class="form-label">Nama</label>
                             <input type="text" class="form-control" id="edit_nama_pasien" name="nama_pasien" required>
+                            @error('nama_pasien')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Alamat</label>
                             <input type="text" class="form-control" id="edit_alamat" name="alamat" required>
+                            @error('alamat')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label class="form-label">No Telpon</label>
                             <input type="number" class="form-control" id="edit_no_telpon" name="no_telpon" required>
+                            @error('no_telpon')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Rumah Sakit</label>
