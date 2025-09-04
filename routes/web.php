@@ -10,8 +10,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', [AuthController::class, 'index'])->name('login');
-Route::post('/login', [AuthController::class, 'store'])->name('login.post');
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AuthController::class, 'index'])->name('login');
+    Route::post('/login', [AuthController::class, 'store'])->name('login.post');
+});
 
 Route::middleware(['auth'])->group(function () {
     Route::prefix('pasien')->group(function () {
